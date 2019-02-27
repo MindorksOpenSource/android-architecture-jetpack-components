@@ -1,7 +1,9 @@
 package com.mindorks.framework.jetpack.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.mindorks.framework.jetpack.R
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,4 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+
 }

@@ -22,6 +22,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -32,6 +35,8 @@ dependencies {
     //Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:${nav_version}" // For Kotlin use navigation-fragment-ktx
     implementation "android.arch.navigation:navigation-ui-ktx:${nav_version}"
+
+    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     testImplementation 'junit:junit:4.12'
