@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@+id/splashFragment">
+
+    <fragment
+            android:id="@+id/splashFragment"
+            android:name="com.mindorks.framework.jetpack.ui.splash.SplashFragment"
+            tools:layout="@layout/fragment_splash">
+        <action
+                android:id="@+id/show_login_screen"
+                app:destination="@id/loginFragment"/>
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.mindorks.framework.jetpack.ui.login.LoginFragment"
+            tools:layout="@layout/fragment_login">
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.mindorks.framework.jetpack.ui.home.HomeFragment"
+            tools:layout="@layout/fragment_login">
+    </fragment>
+
+</navigation>

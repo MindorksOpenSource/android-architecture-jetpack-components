@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack
+package com.mindorks.framework.jetpack.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
