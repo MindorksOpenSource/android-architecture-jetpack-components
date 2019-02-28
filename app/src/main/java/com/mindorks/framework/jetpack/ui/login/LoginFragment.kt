@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.databinding.FragmentLoginBinding
@@ -33,13 +34,17 @@ class LoginFragment: Fragment(){
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         binding.viewModel = this.viewModel
         viewModel.loginSuccess.observe(this, Observer { isLoginSuccess ->
-            var navDirections = showLoginScreen()
             if(isLoginSuccess){
-                navDirections = showHomeScreen()
+                view?.let {
+                    findNavController(it).navigate(R.id.show_home_screen)
+                }
+            }else{
+                view?.let {
+                    findNavController(it).navigate(R.id.show_login_screen)
+                }
             }
-            view?.let {
-                findNavController(it).navigate(navDirections)
-            }
+
+
         })
 
 

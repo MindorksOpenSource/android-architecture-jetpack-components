@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation.findNavController
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.ui.splash.SplashFragmentDirections.Companion.showHomeScreen
@@ -26,13 +27,16 @@ class SplashFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
         viewModel.isUserLoggedIn.observe(this, Observer { isUserLoggedIn ->
-            var navDirections = showLoginScreen()
             if(isUserLoggedIn){
-                navDirections = showHomeScreen()
+                view?.let {
+                    findNavController(it).navigate(R.id.show_home_screen)
+                }
+            }else{
+                view?.let {
+                    findNavController(it).navigate(R.id.show_login_screen)
+                }
             }
-            view?.let {
-                findNavController(it).navigate(navDirections)
-            }
+
         })
 
     }

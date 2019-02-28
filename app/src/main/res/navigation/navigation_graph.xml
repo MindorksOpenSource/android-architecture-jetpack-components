@@ -11,10 +11,14 @@
             tools:layout="@layout/fragment_splash">
         <action
                 android:id="@+id/show_login_screen"
-                app:destination="@id/loginFragment"/>
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true"/>
         <action
                 android:id="@+id/show_home_screen"
-                app:destination="@id/homeFragment"/>
+                app:destination="@id/homeFragment"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -23,7 +27,10 @@
             tools:layout="@layout/fragment_login">
         <action
                 android:id="@+id/show_home_screen"
-                app:destination="@id/homeFragment"/>
+                app:destination="@id/homeFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
