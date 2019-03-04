@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/mobile_navigation"
+            android:id="@+id/app_navigation"
             app:startDestination="@+id/splashFragment">
 
     <fragment
@@ -16,7 +16,7 @@
                 app:popUpToInclusive="true"/>
         <action
                 android:id="@+id/show_home_screen"
-                app:destination="@id/homeFragment"
+                app:destination="@id/homeActivity"
                 app:popUpTo="@id/splashFragment"
                 app:popUpToInclusive="true"/>
     </fragment>
@@ -27,16 +27,29 @@
             tools:layout="@layout/fragment_login">
         <action
                 android:id="@+id/show_home_screen"
-                app:destination="@id/homeFragment"
+                app:destination="@id/homeActivity"
                 app:launchSingleTop="true"
                 app:popUpTo="@id/loginFragment"
                 app:popUpToInclusive="true"/>
     </fragment>
 
-    <fragment
-            android:id="@+id/homeFragment"
-            android:name="com.mindorks.framework.jetpack.ui.home.HomeFragment"
+    <activity
+            android:id="@+id/homeActivity"
+            android:name="com.mindorks.framework.jetpack.ui.home.HomeActivity"
             tools:layout="@layout/fragment_login">
+    </activity>
+    <fragment
+            android:id="@+id/aboutFragment"
+            android:name="com.mindorks.framework.jetpack.ui.about.AboutFragment"
+            tools:layout="@layout/fragment_about">
     </fragment>
+
+    <fragment
+            android:id="@+id/feedFragment"
+            android:name="com.mindorks.framework.jetpack.ui.feed.FeedFragment"
+            tools:layout="@layout/fragment_feed">
+    </fragment>
+
+
 
 </navigation>

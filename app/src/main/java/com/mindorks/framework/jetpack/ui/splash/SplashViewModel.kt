@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 class SplashViewModel : ViewModel(){
     val isUserLoggedIn = MutableLiveData<Boolean>()
     init {
-        isUserLoggedIn.value = false
+        isUserLoggedIn.value = true
     }
 
 }
