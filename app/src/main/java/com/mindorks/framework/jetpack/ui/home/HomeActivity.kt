@@ -34,7 +34,7 @@ class HomeActivity: AppCompatActivity(){
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
 
         // Set up ActionBar
-        //setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         // Set up navigation menu

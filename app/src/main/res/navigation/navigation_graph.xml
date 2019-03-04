@@ -36,20 +36,7 @@
     <activity
             android:id="@+id/homeActivity"
             android:name="com.mindorks.framework.jetpack.ui.home.HomeActivity"
-            tools:layout="@layout/fragment_login">
+            android:label="Questions"
+            tools:layout="@layout/activity_home">
     </activity>
-    <fragment
-            android:id="@+id/aboutFragment"
-            android:name="com.mindorks.framework.jetpack.ui.about.AboutFragment"
-            tools:layout="@layout/fragment_about">
-    </fragment>
-
-    <fragment
-            android:id="@+id/feedFragment"
-            android:name="com.mindorks.framework.jetpack.ui.feed.FeedFragment"
-            tools:layout="@layout/fragment_feed">
-    </fragment>
-
-
-
 </navigation>

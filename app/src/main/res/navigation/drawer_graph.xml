@@ -8,18 +8,21 @@
     <fragment
             android:id="@+id/questionsFragment"
             android:name="com.mindorks.framework.jetpack.ui.question.QuestionsFragment"
+            android:label="Questions"
             tools:layout="@layout/fragment_question">
     </fragment>
 
     <fragment
             android:id="@+id/aboutFragment"
             android:name="com.mindorks.framework.jetpack.ui.about.AboutFragment"
+            android:label="About"
             tools:layout="@layout/fragment_about">
     </fragment>
 
     <fragment
             android:id="@+id/feedFragment"
             android:name="com.mindorks.framework.jetpack.ui.feed.FeedFragment"
+            android:label="Feed"
             tools:layout="@layout/fragment_feed">
     </fragment>
 
