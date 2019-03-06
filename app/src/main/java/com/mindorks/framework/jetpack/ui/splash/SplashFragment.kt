@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation.findNavController
 import com.mindorks.framework.jetpack.R
 
@@ -23,7 +22,7 @@ class SplashFragment : Fragment(){
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
+        viewModel = SplashViewModel(this.activity?.applicationContext)
         viewModel.isUserLoggedIn.observe(this, Observer { isUserLoggedIn ->
             if(isUserLoggedIn){
                 view?.let {
