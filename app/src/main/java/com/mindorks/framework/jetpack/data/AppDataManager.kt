@@ -2,7 +2,6 @@ package com.mindorks.framework.jetpack.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.google.gson.GsonBuilder
 import com.google.gson.internal.`$Gson$Types`
@@ -81,16 +80,13 @@ class AppDataManager(private var context: Context?) : DataManager {
     override fun isQuestionEmpty() = dbHelper.isQuestionEmpty()
 
 
-    override fun getQuestionCardData(): LiveData<List<QuestionCardData>> {
+    override fun getQuestionCardData(): LiveData<List<Question>> {
         return Transformations.map(getAllQuestions()!!) {
-            val questionCardData = MutableLiveData<List<QuestionCardData>>()
-            val questionCardDataList = mutableListOf<QuestionCardData>()
             for (question in it) {
-                questionCardDataList.add(QuestionCardData(question,getOptionsForQuestionId(questionId = question.id)))
+                question.options = getOptionsForQuestionId(question.id)
 
             }
-            questionCardData.value = questionCardDataList
-            return@map questionCardData.value
+            return@map it
         }
 
     }
