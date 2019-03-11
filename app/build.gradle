@@ -19,9 +19,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
     dataBinding {
@@ -35,8 +41,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.core:core-ktx:1.1.0-alpha04'
     //Navigation
-    implementation "android.arch.navigation:navigation-fragment-ktx:${nav_version}" // For Kotlin use navigation-fragment-ktx
-    implementation "android.arch.navigation:navigation-ui-ktx:${nav_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${nav_version}" // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui-ktx:${nav_version}"
 
     //room
     implementation "androidx.room:room-runtime:2.0.0"
@@ -57,6 +63,13 @@ dependencies {
     // swipe view
     implementation "com.mindorks.android:placeholderview:$placeholderview_version"
     kapt "com.mindorks.android:placeholderview-compiler:$placeholderview_version"
+
+    //Pagination
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    //network
+    implementation "com.amitshekhar.android:rx2-android-networking:$rx2FastAndroidNetworking_version"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'

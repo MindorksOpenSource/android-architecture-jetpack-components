@@ -4,9 +4,11 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:text="THIS IS FEED FRAGMENT"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_open_source"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

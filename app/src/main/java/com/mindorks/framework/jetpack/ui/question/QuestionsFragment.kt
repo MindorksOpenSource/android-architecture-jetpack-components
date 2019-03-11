@@ -25,6 +25,7 @@ class QuestionsFragment : Fragment(){
 
         binding.setLifecycleOwner(this)
         binding.data = viewModel
+
         return binding.root
     }
 }

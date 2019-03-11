@@ -36,3 +36,18 @@ fun getScreenWidth(context: Context?): Int {
     windowManager.defaultDisplay.getMetrics(dm)
     return dm.widthPixels
 }
+class NetworkState(val status: Status, val msg: String?) {
+
+    enum class Status {
+        RUNNING,
+        SUCCESS,
+        FAILED,
+        ALL_RESULTS_LOADED
+    }
+
+    companion object {
+        val LOADED: NetworkState = NetworkState(Status.SUCCESS, "Success")
+        val LOADING: NetworkState = NetworkState(Status.RUNNING, "Running")
+
+    }
+}
