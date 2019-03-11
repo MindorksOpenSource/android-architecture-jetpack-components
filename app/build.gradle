@@ -12,7 +12,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.mindorks.framework.jetpack"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -48,11 +48,15 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
 
     // reactive
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava_Version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_Version"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+
+    // swipe view
+    implementation "com.mindorks.android:placeholderview:$placeholderview_version"
+    kapt "com.mindorks.android:placeholderview-compiler:$placeholderview_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'

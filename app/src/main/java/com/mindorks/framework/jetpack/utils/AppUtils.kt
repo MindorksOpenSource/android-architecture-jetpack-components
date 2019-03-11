@@ -1,6 +1,8 @@
 package com.mindorks.framework.jetpack.utils
 
 import android.content.Context
+import android.util.DisplayMetrics
+import android.view.WindowManager
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -19,4 +21,18 @@ fun loadJSONFromAsset(context: Context, jsonFileName: String): String {
     inputStream.close()
 
     return String(buffer, Charset.forName("UTF-8"))
+}
+
+fun getScreenHeight(context: Context?): Int {
+    val windowManager = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val dm = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(dm)
+    return dm.heightPixels
+}
+
+fun getScreenWidth(context: Context?): Int {
+    val windowManager = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val dm = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(dm)
+    return dm.widthPixels
 }

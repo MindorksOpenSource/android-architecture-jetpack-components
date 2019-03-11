@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.databinding.FragmentQuestionBinding
+
 
 /**
  * Created by jyotidubey on 2019-03-04.
@@ -22,8 +22,9 @@ class QuestionsFragment : Fragment(){
         val binding = DataBindingUtil.inflate<FragmentQuestionBinding>(
             inflater, R.layout.fragment_question, container, false)
         viewModel = QuestionViewModel(this.activity?.applicationContext)
-        viewModel.questions?.observe(viewLifecycleOwner, Observer {
-        })
+
+        binding.setLifecycleOwner(this)
+        binding.data = viewModel
         return binding.root
     }
 }

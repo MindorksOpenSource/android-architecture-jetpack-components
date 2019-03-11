@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    <variable
+            name="data"
+            type="com.mindorks.framework.jetpack.ui.question.QuestionViewModel" />
+    </data>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
+        <com.mindorks.placeholderview.SwipePlaceHolderView
+                android:id="@+id/cardsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:action="@{data.action}"
+                app:adapter="@{data.questions}" />
     </LinearLayout>
 </layout>
