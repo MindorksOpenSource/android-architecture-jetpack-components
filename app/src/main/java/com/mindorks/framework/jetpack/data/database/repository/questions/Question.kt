@@ -47,16 +47,3 @@ data class Question(
     @Ignore
     var showCorrectOption : Boolean = false
 }
-
-class QuestionDiffCallback(var updatedQuestions:List<Question>, var oldQuestions: List<Question>) : DiffUtil.Callback(){
-
-    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) = oldQuestions[oldItemPosition].id == updatedQuestions[newItemPosition].id
-
-    override fun getOldListSize() = oldQuestions.size
-
-    override fun getNewListSize() = updatedQuestions.size
-
-    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-        oldQuestions[oldItemPosition] == updatedQuestions[newItemPosition]
-
-}

@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.databinding.FragmentQuestionBinding
+import kotlinx.android.synthetic.main.fragment_question.*
 
 
 /**

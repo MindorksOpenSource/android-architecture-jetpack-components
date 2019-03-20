@@ -16,6 +16,8 @@
 
 package com.mindorks.framework.jetpack.data.model.api;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -170,5 +172,20 @@ public class BlogResponse {
         public String getTitle() {
             return title;
         }
+
+        public static DiffUtil.ItemCallback<BlogResponse.Blog> DIFF_CALLBACK = new DiffUtil.ItemCallback<BlogResponse.Blog>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull BlogResponse.Blog oldItem, @NonNull BlogResponse.Blog newItem) {
+                return oldItem.getBlogUrl() == newItem.getBlogUrl();
+            }
+
+            @Override
+            public boolean areContentsTheSame(@NonNull BlogResponse.Blog oldItem, @NonNull BlogResponse.Blog newItem) {
+                return oldItem.equals(newItem);
+            }
+        };
+
+
+
     }
 }

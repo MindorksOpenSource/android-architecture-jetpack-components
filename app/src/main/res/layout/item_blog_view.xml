@@ -21,10 +21,10 @@
 
         <variable
                 name="data"
-                type="com.mindorks.framework.jetpack.data.model.api.OpenSourceResponse.Repo" />
+                type="com.mindorks.framework.jetpack.data.model.api.BlogResponse.Blog" />
         <variable
                 name="handler"
-                type="com.mindorks.framework.jetpack.ui.opensource.OpenSourceViewModel.OpenSourceItemClickHandler" />
+                type="com.mindorks.framework.jetpack.ui.blog.BlogViewModel.BlogItemClickHandler" />
 
     </data>
 
@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:onClick="@{()->handler.onOpenSourceItemClicked(data)}"
+                    android:onClick="@{()->handler.onBlogItemClicked(data)}"
                     android:paddingBottom="30dp">
 
                 <TextView

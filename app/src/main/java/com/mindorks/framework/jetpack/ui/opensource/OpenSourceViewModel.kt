@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack.ui.feed
+package com.mindorks.framework.jetpack.ui.opensource
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
@@ -13,7 +13,7 @@ import java.util.concurrent.Executors
 /**
  * Created by jyotidubey on 2019-03-07.
  */
-class FeedViewModel : ViewModel(){
+class OpenSourceViewModel : ViewModel(){
 
     var repoLiveData: LiveData<PagedList<OpenSourceResponse.Repo>>? = null
     var progress: LiveData<NetworkState>? = null
@@ -26,13 +26,13 @@ class FeedViewModel : ViewModel(){
         setUpPagedList(dsFactory)
     }
 
-    private fun setUpPagedList(dsFactory : OpenSourceDSFactory) {
+    private fun setUpPagedList(DSFactory : OpenSourceDSFactory) {
         val executor = Executors.newFixedThreadPool(2)
         val pagedListConfig = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setInitialLoadSizeHint(5)
             .setPageSize(10).build()
-        repoLiveData = LivePagedListBuilder(dsFactory, pagedListConfig)
+        repoLiveData = LivePagedListBuilder(DSFactory, pagedListConfig)
             .setFetchExecutor(executor)
             .build()
     }

@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack.ui.feed
+package com.mindorks.framework.jetpack.ui.opensource
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,31 +10,31 @@ import com.mindorks.framework.jetpack.databinding.ItemOpenSourceViewBinding
 import com.mindorks.framework.jetpack.utils.NetworkState
 
 
-
 /**
  * Created by jyotidubey on 2019-03-07.
  */
 private const val TYPE_PROGRESS = 0
 private const val TYPE_ITEM = 1
-class OpenSourceListAdapter(val handler: FeedViewModel.OpenSourceItemClickHandler) :
-    PagedListAdapter<OpenSourceResponse.Repo, RecyclerView.ViewHolder>(OpenSourceResponse.Repo.DIFF_CALLBACK){
+
+class OpenSourceListAdapter(val handler: OpenSourceViewModel.OpenSourceItemClickHandler) :
+    PagedListAdapter<OpenSourceResponse.Repo, RecyclerView.ViewHolder>(OpenSourceResponse.Repo.DIFF_CALLBACK) {
 
     private var networkState: NetworkState? = null
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder is OpenSourceViewHolder){
+        if (holder is OpenSourceViewHolder) {
             holder.bindTo(getItem(position))
-        }else{
+        } else {
             (holder as NetworkStateItemViewHolder).bindTo(networkState)
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if(viewType == TYPE_ITEM) {
+        return if (viewType == TYPE_ITEM) {
             val itemBinding = ItemOpenSourceViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            OpenSourceViewHolder(itemBinding)
-        }else{
+            OpenSourceViewHolder(itemBinding, handler)
+        } else {
             val headerBinding = ItemNetworkBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             NetworkStateItemViewHolder(headerBinding)
         }
@@ -68,7 +68,10 @@ class OpenSourceListAdapter(val handler: FeedViewModel.OpenSourceItemClickHandle
         }
     }
 
-    inner class OpenSourceViewHolder(private val binding: ItemOpenSourceViewBinding) :
+    class OpenSourceViewHolder(
+        private val binding: ItemOpenSourceViewBinding,
+        private val handler: OpenSourceViewModel.OpenSourceItemClickHandler
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindTo(repo: OpenSourceResponse.Repo?) {
@@ -84,9 +87,6 @@ class OpenSourceListAdapter(val handler: FeedViewModel.OpenSourceItemClickHandle
             binding.progress = networkState
         }
     }
-
-
-
 
 
 }
