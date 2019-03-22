@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.data.model.api.OpenSourceResponse
-import com.mindorks.framework.jetpack.databinding.FragmentFeedBinding
+import com.mindorks.framework.jetpack.databinding.FragmentOpenSourceBinding
 
 /**
  * Created by jyotidubey on 2019-03-02.
@@ -24,8 +24,8 @@ class OpenSourceFragment  : Fragment(), OpenSourceViewModel.OpenSourceItemClickH
     private var adapter : OpenSourceListAdapter? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentFeedBinding>(
-            inflater, R.layout.fragment_feed, container, false)
+        val binding = DataBindingUtil.inflate<FragmentOpenSourceBinding>(
+            inflater, R.layout.fragment_open_source, container, false)
         adapter = OpenSourceListAdapter(this)
         binding.listOpenSource.adapter = adapter
         val layoutManager = LinearLayoutManager(this.activity)

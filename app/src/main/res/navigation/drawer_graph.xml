@@ -20,7 +20,7 @@
 
     <fragment
             android:id="@+id/feedFragment"
-            android:name="com.mindorks.framework.jetpack.ui.feed.blog.BlogFragment"
+            android:name="com.mindorks.framework.jetpack.ui.feed.FeedFragment"
             android:label="Feed"
             tools:layout="@layout/fragment_feed">
     </fragment>

@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.data.model.api.BlogResponse
+import com.mindorks.framework.jetpack.databinding.FragmentBlogsBinding
 import com.mindorks.framework.jetpack.databinding.FragmentFeedBinding
 
 /**
@@ -24,13 +25,13 @@ class BlogFragment : Fragment(), BlogViewModel.BlogItemClickHandler{
     private var adapter : BlogListAdapter? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentFeedBinding>(
-            inflater, R.layout.fragment_feed, container, false)
+        val binding = DataBindingUtil.inflate<FragmentBlogsBinding>(
+            inflater, R.layout.fragment_blogs, container, false)
         adapter = BlogListAdapter(this)
-        binding.listOpenSource.adapter = adapter
+        binding.listBlogs.adapter = adapter
         val layoutManager = LinearLayoutManager(this.activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        binding.listOpenSource.layoutManager =  layoutManager
+        binding.listBlogs.layoutManager =  layoutManager
         viemModel.repoLiveData?.observe(this, Observer {
             adapter?.submitList(it)
         })
