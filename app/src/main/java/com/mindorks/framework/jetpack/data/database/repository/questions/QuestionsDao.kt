@@ -6,6 +6,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import io.reactivex.Flowable
+import io.reactivex.Single
 
 /**
  * Created by jyotidubey on 04/01/18.
@@ -17,5 +19,5 @@ interface QuestionsDao {
     fun insertAll(question: List<Question>)
 
     @Query("SELECT * FROM questions")
-    fun loadAll(): LiveData<List<Question>>
+    fun loadAll(): Single<List<Question>>
 }

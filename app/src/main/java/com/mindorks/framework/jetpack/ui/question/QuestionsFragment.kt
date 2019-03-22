@@ -1,6 +1,7 @@
 package com.mindorks.framework.jetpack.ui.question
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,10 @@ import androidx.fragment.app.Fragment
 import com.mindorks.framework.jetpack.R
 import com.mindorks.framework.jetpack.databinding.FragmentQuestionBinding
 import kotlinx.android.synthetic.main.fragment_question.*
+import android.os.Looper.getMainLooper
+import androidx.core.os.HandlerCompat.postDelayed
+
+
 
 
 /**
@@ -26,7 +31,21 @@ class QuestionsFragment : Fragment(){
 
         binding.setLifecycleOwner(this)
         binding.data = viewModel
-
+        setItemRemoveListener(binding)
         return binding.root
+    }
+
+    private fun setItemRemoveListener(binding: FragmentQuestionBinding) {
+        binding.cardsContainer.addItemRemoveListener { count ->
+            if (count === 0) {
+                // reload the contents again after 1 sec delay
+                Handler(getMainLooper()).postDelayed({
+                    //Reload once all the cards are removed
+                    viewModel.loadQuestions()
+                }, 800)
+            } else {
+                viewModel.removeQuestion()
+            }
+        }
     }
 }

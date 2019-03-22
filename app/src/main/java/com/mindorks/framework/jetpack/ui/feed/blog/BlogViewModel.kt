@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack.ui.blog
+package com.mindorks.framework.jetpack.ui.feed.blog
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations

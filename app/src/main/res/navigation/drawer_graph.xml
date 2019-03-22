@@ -4,7 +4,6 @@
             android:id="@+id/drawer_graph"
             app:startDestination="@+id/questionsFragment">
 
-
     <fragment
             android:id="@+id/questionsFragment"
             android:name="com.mindorks.framework.jetpack.ui.question.QuestionsFragment"
@@ -21,7 +20,7 @@
 
     <fragment
             android:id="@+id/feedFragment"
-            android:name="com.mindorks.framework.jetpack.ui.blog.BlogFragment"
+            android:name="com.mindorks.framework.jetpack.ui.feed.blog.BlogFragment"
             android:label="Feed"
             tools:layout="@layout/fragment_feed">
     </fragment>

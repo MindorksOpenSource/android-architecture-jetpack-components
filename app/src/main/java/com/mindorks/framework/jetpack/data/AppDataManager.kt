@@ -9,7 +9,10 @@ import com.mindorks.framework.jetpack.data.database.AppDBHelper
 import com.mindorks.framework.jetpack.data.database.repository.options.Option
 import com.mindorks.framework.jetpack.data.database.repository.questions.Question
 import com.mindorks.framework.jetpack.utils.loadJSONFromAsset
+import io.reactivex.BackpressureStrategy
+import io.reactivex.Flowable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 /**
  * Created by jyotidubey on 2019-03-05.
@@ -80,14 +83,15 @@ class AppDataManager(private var context: Context?) : DataManager {
     override fun isQuestionEmpty() = dbHelper.isQuestionEmpty()
 
 
-    override fun getQuestionCardData(): LiveData<List<Question>> {
-        return Transformations.map(getAllQuestions()!!) {
-            for (question in it) {
-                question.options = getOptionsForQuestionId(question.id)
-
+    override fun getQuestionCardData(): Single<List<Question>> {
+        return getAllQuestions()!!
+            .flatMapObservable {  Observable.fromIterable(it) }
+            .map { question: Question ->
+                question.options =  getOptionsForQuestionId(question.id)
+                question
             }
-            return@map it
-        }
+            .toList()
+
 
     }
 

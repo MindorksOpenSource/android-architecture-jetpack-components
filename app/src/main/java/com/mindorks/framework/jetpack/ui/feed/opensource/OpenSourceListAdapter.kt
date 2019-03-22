@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack.ui.opensource
+package com.mindorks.framework.jetpack.ui.feed.opensource
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

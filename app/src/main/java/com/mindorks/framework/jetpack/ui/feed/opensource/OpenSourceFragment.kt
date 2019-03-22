@@ -1,4 +1,4 @@
-package com.mindorks.framework.jetpack.ui.blog
+package com.mindorks.framework.jetpack.ui.feed.opensource
 
 import android.content.Intent
 import android.net.Uri
@@ -11,22 +11,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mindorks.framework.jetpack.R
-import com.mindorks.framework.jetpack.data.model.api.BlogResponse
+import com.mindorks.framework.jetpack.data.model.api.OpenSourceResponse
 import com.mindorks.framework.jetpack.databinding.FragmentFeedBinding
 
 /**
- * Created by jyotidubey on 2019-03-20.
+ * Created by jyotidubey on 2019-03-02.
  */
-class BlogFragment : Fragment(), BlogViewModel.BlogItemClickHandler{
+class OpenSourceFragment  : Fragment(), OpenSourceViewModel.OpenSourceItemClickHandler{
 
-    val viemModel = BlogViewModel()
 
-    private var adapter : BlogListAdapter? = null
+    val viemModel = OpenSourceViewModel()
+    private var adapter : OpenSourceListAdapter? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentFeedBinding>(
             inflater, R.layout.fragment_feed, container, false)
-        adapter = BlogListAdapter(this)
+        adapter = OpenSourceListAdapter(this)
         binding.listOpenSource.adapter = adapter
         val layoutManager = LinearLayoutManager(this.activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -40,12 +40,12 @@ class BlogFragment : Fragment(), BlogViewModel.BlogItemClickHandler{
         return binding.root
     }
 
-    override fun onBlogItemClicked(blog: BlogResponse.Blog) {
-        blog.blogUrl?.let {
+    override fun onOpenSourceItemClicked(repo: OpenSourceResponse.Repo) {
+        repo.projectUrl?.let {
             Intent().let {
                 it.action = Intent.ACTION_VIEW
                 it.addCategory(Intent.CATEGORY_BROWSABLE)
-                it.data = Uri.parse(blog.blogUrl)
+                it.data = Uri.parse(repo.projectUrl)
                 activity?.startActivity(it)
 
             }
