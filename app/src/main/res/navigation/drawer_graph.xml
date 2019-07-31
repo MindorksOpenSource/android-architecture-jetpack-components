@@ -25,4 +25,22 @@
             tools:layout="@layout/fragment_feed">
     </fragment>
 
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.mindorks.framework.jetpack.ui.login.LoginFragment"
+            tools:layout="@layout/fragment_login">
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeActivity"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <activity
+            android:id="@+id/homeActivity"
+            android:name="com.mindorks.framework.jetpack.ui.home.HomeActivity"
+            android:label="Questions"
+            tools:layout="@layout/activity_home">
+    </activity>
+
 </navigation>

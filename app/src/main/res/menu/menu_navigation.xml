@@ -35,7 +35,6 @@
                 android:title="@string/feed" />
         <item
                 android:id="@+id/logout"
-                android:checked="true"
                 android:icon="@drawable/ic_power_settings_new_24px"
                 android:title="@string/logout" />
     </group>
