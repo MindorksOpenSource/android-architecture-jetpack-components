@@ -63,6 +63,12 @@ class HomeActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.logout -> {
                 navController.navigate(R.id.loginFragment)
             }
+            R.id.feedFragment->{
+                navController.navigate(R.id.feedFragment)
+            }
+            R.id.aboutFragment->{
+                navController.navigate(R.id.aboutFragment)
+            }
         }
         return true
     }
