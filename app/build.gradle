@@ -68,6 +68,7 @@ dependencies {
     implementation "com.mindorks.android:placeholderview:$placeholderview_version"
     kapt "com.mindorks.android:placeholderview-compiler:$placeholderview_version"
 
+
     //Pagination
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 

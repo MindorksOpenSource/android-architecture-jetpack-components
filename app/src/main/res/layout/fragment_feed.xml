@@ -12,6 +12,10 @@
         <androidx.viewpager.widget.ViewPager android:id="@+id/feeds"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_open_source"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
     </LinearLayout>
 </layout>
