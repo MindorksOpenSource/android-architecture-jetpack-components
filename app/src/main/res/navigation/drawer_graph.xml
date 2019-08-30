@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/drawer_graph"
+            app:startDestination="@+id/questionsFragment">
+
+    <fragment
+            android:id="@+id/questionsFragment"
+            android:name="com.mindorks.framework.jetpack.ui.question.QuestionsFragment"
+            android:label="Questions"
+            tools:layout="@layout/fragment_question">
+    </fragment>
+
+    <fragment
+            android:id="@+id/aboutFragment"
+            android:name="com.mindorks.framework.jetpack.ui.about.AboutFragment"
+            android:label="About"
+            tools:layout="@layout/fragment_about">
+    </fragment>
+
+    <fragment
+            android:id="@+id/feedFragment"
+            android:name="com.mindorks.framework.jetpack.ui.feed.FeedFragment"
+            android:label="Feed"
+            tools:layout="@layout/fragment_feed">
+    </fragment>
+
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.mindorks.framework.jetpack.ui.login.LoginFragment"
+            tools:layout="@layout/fragment_login">
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeActivity"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <activity
+            android:id="@+id/homeActivity"
+            android:name="com.mindorks.framework.jetpack.ui.home.HomeActivity"
+            android:label="Questions"
+            tools:layout="@layout/activity_home">
+    </activity>
+
+</navigation>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/app_navigation"
+            app:startDestination="@+id/splashFragment">
+
+    <fragment
+            android:id="@+id/splashFragment"
+            android:name="com.mindorks.framework.jetpack.ui.splash.SplashFragment"
+            tools:layout="@layout/fragment_splash">
+        <action
+                android:id="@+id/show_login_screen"
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true"/>
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeActivity"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.mindorks.framework.jetpack.ui.login.LoginFragment"
+            tools:layout="@layout/fragment_login">
+        <action
+                android:id="@+id/show_home_screen"
+                app:destination="@id/homeActivity"
+                app:launchSingleTop="true"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+    <activity
+            android:id="@+id/homeActivity"
+            android:name="com.mindorks.framework.jetpack.ui.home.HomeActivity"
+            android:label="Questions"
+            tools:layout="@layout/activity_home">
+    </activity>
+</navigation>
